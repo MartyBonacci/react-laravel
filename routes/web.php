@@ -13,6 +13,8 @@
 
 Route::get('/', function () {
 
-    $blogArticles = DB::table('blogs')->get();
-    return $blogArticles;
+//    $blogArticles = DB::table('blogs')->get();
+//    return $blogArticles;
+    return view('welcome');
+
 });
