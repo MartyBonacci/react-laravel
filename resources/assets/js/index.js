@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import Blog from './components/Blog';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import Example from "./components/Example";
+import BlogArticle from './components/BlogArticle';
+import BlogArticlePost from './components/BlogArticlePost';
 
 export default class Index extends Component {
     render() {
@@ -12,8 +14,12 @@ export default class Index extends Component {
                     <div>
                         <Link to="/">Home</Link>
                         <Link to={"/blog"}>Blog</Link>
+                        <Link to={"/blog/post-article"}>Post Article</Link>
+
                         <Route path="/" exact component={Example}/>
                         <Route path="/blog" exact component={Blog}/>
+                        <Route path="/blog/:id" exact render={props => <BlogArticle{...props}/> }/>
+                        <Route path="/blog/post-article" exact component={BlogArticlePost}/>
                 </div>
                 </Router>
             </div>
